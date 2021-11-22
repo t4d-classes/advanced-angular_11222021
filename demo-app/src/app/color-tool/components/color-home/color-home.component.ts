@@ -3,6 +3,7 @@ import { Store, select } from '@ngrx/store';
 
 import { AppState } from 'src/app/app.state';
 import { Color, NewColor } from '../../models/colors';
+import { appendColor } from '../../color-tool.actions';
 
 @Component({
   selector: 'app-color-home',
@@ -19,6 +20,8 @@ export class ColorHomeComponent implements OnInit {
   }
 
   addColor(color: NewColor) {
+
+    this.store.dispatch(appendColor({ color }))
 
     // this.colors = [
     //   ...this.colors,
