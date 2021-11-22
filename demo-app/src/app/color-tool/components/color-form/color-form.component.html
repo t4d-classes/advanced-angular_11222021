@@ -1,1 +1,11 @@
-<p>color-form works!</p>
+<form [formGroup]="colorForm">  
+  <label>
+    Name:
+    <input type="text" [formControlName]=" 'name' ">
+  </label>
+  <label>
+    Hexcode:
+    <input type="text" formControlName="hexcode">
+  </label>
+  <button (click)="doSubmitColor()">Add Color</button>
+</form>

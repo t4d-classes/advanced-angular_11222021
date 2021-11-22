@@ -20,6 +20,9 @@ import { ColorFormComponent } from './components/color-form/color-form.component
     CommonModule,
     ReactiveFormsModule,
     SharedModule
+  ],
+  exports: [
+    ColorHomeComponent,
   ]
 })
 export class ColorToolModule { }
