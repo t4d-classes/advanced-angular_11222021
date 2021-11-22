@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
 
+import { AppState } from 'src/app/app.state';
 import { Color, NewColor } from '../../models/colors';
 
 @Component({
@@ -9,24 +11,22 @@ import { Color, NewColor } from '../../models/colors';
 })
 export class ColorHomeComponent implements OnInit {
 
-  colors: Color[] = [
-    { id: 1, name: 'red', hexcode: 'ff0000' },
-  ];
+  colors$ = this.store.pipe(select(state => state.colors));
 
-  constructor() { }
+  constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
   }
 
   addColor(color: NewColor) {
 
-    this.colors = [
-      ...this.colors,
-      {
-        ...color,
-        id: Math.max(...this.colors.map(c => c.id), 0) + 1,
-      }
-    ];
+    // this.colors = [
+    //   ...this.colors,
+    //   {
+    //     ...color,
+    //     id: Math.max(...this.colors.map(c => c.id), 0) + 1,
+    //   }
+    // ];
 
   }
 

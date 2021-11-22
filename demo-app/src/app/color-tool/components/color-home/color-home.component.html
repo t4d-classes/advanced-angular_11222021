@@ -1,3 +1,3 @@
 <app-tool-header headerText="Color Tool"></app-tool-header>
-<app-color-list [colors]="colors"></app-color-list>
+<app-color-list [colors]="colors$ | async"></app-color-list>
 <app-color-form (submitColor)="addColor($event)"></app-color-form>

@@ -10,7 +10,7 @@ import { Color } from '../../models/colors';
 export class ColorListComponent implements OnInit {
 
   @Input()
-  colors: Color[] = [];
+  colors: Color[] | null = [];
 
   constructor() { }
 
