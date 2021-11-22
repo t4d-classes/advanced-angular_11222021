@@ -20,4 +20,11 @@ export const colorsReducer = createReducer<Color[]>(
       }
     ];
 
+    // state.push({
+    //   ...action.color,
+    //   id: Math.max(...state.map(c => c.id), 0) + 1,
+    // });
+
+    // return state;
+
   }));
