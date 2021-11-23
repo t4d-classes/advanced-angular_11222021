@@ -3,7 +3,7 @@ import { Store, select } from '@ngrx/store';
 
 import { AppState } from 'src/app/app.state';
 import {
-  appendCar, removeCar, replaceCar,
+  appendCarRequest, removeCarRequest, replaceCarRequest,
   editCar, cancelCar, refreshCarsRequest } from '../../car-tool.actions';
 import { Car, NewCar } from '../../models/cars';
 
@@ -25,15 +25,15 @@ export class CarHomeComponent implements OnInit {
   }
 
   doAddCar(car: NewCar) {
-    this.store.dispatch(appendCar({ car }));
+    this.store.dispatch(appendCarRequest({ car }));
   }
 
   doSaveCar(car: Car) {
-    this.store.dispatch(replaceCar({ car }))
+    this.store.dispatch(replaceCarRequest({ car }))
   }
 
   doDeleteCar(carId: number) {
-    this.store.dispatch(removeCar({ carId }));
+    this.store.dispatch(removeCarRequest({ carId }));
   }
 
   doEditCar(carId: number) {

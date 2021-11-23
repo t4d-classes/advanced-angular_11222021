@@ -2,7 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 
 import { Car } from './models/cars';
 import {
-  appendCar, removeCar, editCar, cancelCar, replaceCar, refreshCarsDone, refreshCarsRequest
+  appendCarRequest, removeCarRequest, editCar, cancelCar, replaceCarRequest, refreshCarsDone, refreshCarsRequest
 } from './car-tool.actions';
 
 const initialCars: Car[] = [
@@ -13,6 +13,9 @@ const initialCars: Car[] = [
 // export const isLoadingReducer = createReducer<boolean>(
 //   false,
 //   on(refreshCarsRequest, () => true),
+//   on(appendCarRequest, () => true),
+//   on(replaceCarRequest, () => true),
+//   on(removeCarRequest, () => true),
 //   on(refreshCarsDone, () => false),
 // );
 
@@ -20,32 +23,11 @@ export const carsReducer = createReducer<Car[]>(
   [],
   on(refreshCarsDone, (_, action) => {
     return action.cars;
-  }),
-  on(appendCar, (state, action) => {
-    return [
-      ...state,
-      {
-        ...action.car,
-        id: Math.max(...state.map(c => c.id), 0) + 1,
-      }
-    ];    
-  }),
-  on(replaceCar, (state, action) => {
-    const carIndex = state.findIndex(c => c.id === action.car.id);
-    const newCars = [ ...state ];
-    newCars[carIndex] = action.car;
-    return newCars;
-  }),
-  on(removeCar, (state, action) => {
-    return state.filter(c => c.id !== action.carId);
   }));
 
 export const editCarIdReducer = createReducer<number>(
   -1,
   on(editCar, (_, action) => action.carId),
-  on(appendCar, () => -1),
-  on(replaceCar, () => -1),
-  on(removeCar, () => -1),
   on(cancelCar, () => -1),
   on(refreshCarsDone, () => -1),
 );

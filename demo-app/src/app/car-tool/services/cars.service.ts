@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Car } from '../models/cars';
+import { Car, NewCar } from '../models/cars';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class CarsService {
     return this.httpClient.get<Car[]>(this.getCollectionUrl());
   }
 
-  append(car: Car) {
+  append(car: NewCar) {
     return this.httpClient.post<Car>(this.getCollectionUrl(), car);
   }
 
