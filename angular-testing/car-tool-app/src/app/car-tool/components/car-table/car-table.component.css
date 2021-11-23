@@ -1,0 +1,7 @@
+th {
+  text-align: center;  
+}
+
+th > label {
+  display: inline;
+}

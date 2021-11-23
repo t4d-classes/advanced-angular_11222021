@@ -1,0 +1,11 @@
+<h2>Item List</h2>
+
+<ul>
+  <li *ngFor="let item of items">{{item}}</li>
+</ul>
+
+<div>
+  <label>New Item</label>
+  <input type="text" [formControl]="newItem">
+  <button type="button" (click)="addItem()">Add Item</button>
+</div>

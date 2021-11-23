@@ -1,0 +1,29 @@
+<header>
+  <h2>{{headerText}}</h2>
+</header>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th><label for="edit-make-input">Make</label></th>
+      <th><label for="edit-model-input">Model</label></th>
+      <th><label for="edit-year-input">Year</label></th>
+      <th><label for="edit-color-input">Color</label></th>
+      <th><label for="edit-price-input">Price</label></th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <ng-container *ngFor="let car of cars">
+      <tr class="app-car-view-row"
+        *ngIf="editCarId !== car.id"
+        [car]="car" (editCar)="doEditCar($event)"
+        (deleteCar)="doDeleteCar($event)" ></tr>
+      <tr class="app-car-edit-row"
+        *ngIf="editCarId === car.id"
+        [car]="car" (saveCar)="doSaveCar($event)"
+        (cancelCar)="doCancelCar()" ></tr>
+    </ng-container>
+  </tbody>
+</table>
+<button (click)="doRefreshCars()" class="btn btn-primary">Refresh Cars</button>

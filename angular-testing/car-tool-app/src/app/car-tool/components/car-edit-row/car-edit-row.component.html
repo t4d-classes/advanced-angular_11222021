@@ -1,0 +1,17 @@
+<ng-container [formGroup]="editCarForm">
+  <td>{{car.id}}</td>
+  <td><input type="text" class="form-control" #editMakeInput
+    id="edit-make-input" formControlName="make"></td>
+  <td><input type="text" class="form-control"
+    id="edit-model-input" formControlName="model"></td>
+  <td><input type="number" class="form-control"
+    id="edit-year-input" formControlName="year"></td>
+  <td><input type="text" class="form-control"
+    id="edit-color-input" formControlName="color"></td>
+  <td><input type="number" class="form-control"
+    id="edit-price-input" formControlName="price"></td>
+  <td>
+    <button (click)="doSaveCar()" class="btn btn-link">Save</button>
+    <button (click)="doCancelCar()" class="btn btn-link">Cancel</button>
+  </td>
+</ng-container>

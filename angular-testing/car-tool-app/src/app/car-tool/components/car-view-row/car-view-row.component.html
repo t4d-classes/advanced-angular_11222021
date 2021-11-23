@@ -1,0 +1,10 @@
+<td class="text-right">{{car.id}}</td>
+<td class="text-left">{{car.make}}</td>
+<td class="text-left">{{car.model}}</td>
+<td class="text-center">{{car.year}}</td>
+<td class="text-center">{{car.color}}</td>
+<td class="text-right">{{car.price | currency}}</td>
+<td class="text-center">
+  <button (click)="doEditCar()" class="btn btn-link">Edit</button>
+  <button (click)="doDeleteCar()" class="btn btn-link">Delete</button>
+</td>

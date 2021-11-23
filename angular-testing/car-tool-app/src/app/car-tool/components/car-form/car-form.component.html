@@ -1,0 +1,36 @@
+<header>
+  <h2>{{headerText}}</h2>
+</header>
+<form [formGroup]="carForm" (submit)="doSubmitCarForm()">
+  <div class="form-group">
+    <label for="make-input">Make:</label>
+    <input type="text" class="form-control" #makeInput
+      id="make-input" formControlName="make">
+  </div>
+  <div class="form-group">
+    <label for="model-input">Model:</label>
+    <input type="text" class="form-control"
+      id="model-input" formControlName="model">
+  </div>
+  <div class="form-group">
+    <label for="year-input">Year:</label>
+    <input type="number" class="form-control"
+      id="year-input" formControlName="year">
+  </div>
+  <div class="form-group">
+    <label for="color-input">Color:</label>
+    <input type="text" class="form-control"
+      id="color-input" formControlName="color">
+  </div>
+  <div class="form-group">
+    <label for="price-input">Price:</label>
+    <input type="number" class="form-control"
+      id="price-input" formControlName="price">
+  </div>
+  <div class="text-center">
+      <button type="submit" class="btn btn-primary">
+        {{buttonText}}</button>
+      <button type="button" (click)="doResetCarForm()"
+        class="btn btn-secondary">Reset</button>
+  </div>
+</form>
