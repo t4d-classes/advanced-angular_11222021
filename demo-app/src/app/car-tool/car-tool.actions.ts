@@ -2,6 +2,11 @@ import { createAction, props } from '@ngrx/store';
 
 import { Car, NewCar } from './models/cars';
 
+export const refreshCarsRequest = createAction('[Car Tool] Refresh Cars Request');
+
+export const refreshCarsDone = createAction(
+  '[Car Tool] Refresh Cars Done', props<{cars: Car[] }>());
+
 export const appendCar = createAction(
   '[Car Tool] Append Car', props<{car: NewCar}>());
 

@@ -4,7 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { AppState } from 'src/app/app.state';
 import {
   appendCar, removeCar, replaceCar,
-  editCar, cancelCar } from '../../car-tool.actions';
+  editCar, cancelCar, refreshCarsRequest } from '../../car-tool.actions';
 import { Car, NewCar } from '../../models/cars';
 
 @Component({
@@ -18,10 +18,10 @@ export class CarHomeComponent implements OnInit {
 
   editCarId$ = this.store.pipe(select(state => state.editCarId));
 
-
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
+    this.store.dispatch(refreshCarsRequest());
   }
 
   doAddCar(car: NewCar) {

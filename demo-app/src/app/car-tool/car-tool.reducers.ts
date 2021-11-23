@@ -2,7 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 
 import { Car } from './models/cars';
 import {
-  appendCar, removeCar, editCar, cancelCar, replaceCar
+  appendCar, removeCar, editCar, cancelCar, replaceCar, refreshCarsDone, refreshCarsRequest
 } from './car-tool.actions';
 
 const initialCars: Car[] = [
@@ -10,8 +10,17 @@ const initialCars: Car[] = [
   { id: 2, make: 'Tesla', model: 'S', year: 2019, color: 'red', price: 125000 },
 ];
 
+// export const isLoadingReducer = createReducer<boolean>(
+//   false,
+//   on(refreshCarsRequest, () => true),
+//   on(refreshCarsDone, () => false),
+// );
+
 export const carsReducer = createReducer<Car[]>(
-  initialCars,
+  [],
+  on(refreshCarsDone, (_, action) => {
+    return action.cars;
+  }),
   on(appendCar, (state, action) => {
     return [
       ...state,
@@ -38,4 +47,5 @@ export const editCarIdReducer = createReducer<number>(
   on(replaceCar, () => -1),
   on(removeCar, () => -1),
   on(cancelCar, () => -1),
+  on(refreshCarsDone, () => -1),
 );
