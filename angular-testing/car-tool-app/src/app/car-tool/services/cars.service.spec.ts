@@ -15,8 +15,8 @@ describe('CarsService', () => {
   }));
 
   beforeEach(() => {
-    http = TestBed.get(HttpTestingController);
-    carsSvc = TestBed.get(CarsService);
+    http = TestBed.inject(HttpTestingController);
+    carsSvc = TestBed.inject(CarsService);
   });
 
   it('should be created', () => {

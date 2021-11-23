@@ -1,0 +1,11 @@
+<article *ngIf="article">
+  <h1>{{article.title}}</h1>
+
+  <a [href]="'https://simply-how.com/' + article.slug" target="_blank">
+      <div class="cover-image">
+          <img [alt]="article.cover.alt" [src]="article.cover.src" />
+      </div>
+  </a>
+
+  <p>{{article.description}}</p>
+</article>

@@ -10,7 +10,7 @@ import { Car } from '../../models/cars';
 export class CarViewRowComponent {
 
   @Input()
-  car: Car | null = null;
+  car!: Car;
 
   @Output()
   editCar = new EventEmitter<number>();

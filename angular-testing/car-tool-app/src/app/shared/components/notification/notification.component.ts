@@ -31,10 +31,14 @@ import { NotificationService } from '../../services/notification.service';
 export class NotificationComponent implements OnInit {
 
   constructor(
-    private notificationSvc: NotificationService,
+    public notificationSvc: NotificationService,
   ) { }
 
   ngOnInit() {
+  }
+
+  get messages() {
+    return this.notificationSvc.notificationMessage as string[];
   }
 
 }

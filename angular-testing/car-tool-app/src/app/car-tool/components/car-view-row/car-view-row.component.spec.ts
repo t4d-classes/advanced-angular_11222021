@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
 import { Car } from '../../models/cars';
@@ -19,7 +19,7 @@ describe('CarViewRowComponent', () => {
     price: 2000,
   };
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [
         FakeCurrencyPipe, // using a fake pipe to avoid the formatting to ease testing
@@ -32,8 +32,8 @@ describe('CarViewRowComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(CarViewRowComponent);
     component = fixture.componentInstance;
-    component.car = car;
-    fixture.detectChanges();
+    component.car = car; // @Input()
+    fixture.detectChanges(); // rendered the DOM tree
   });
 
   it('should create', () => {

@@ -1,0 +1,14 @@
+h1 {
+  text-align: center;
+}
+
+.cover-image {
+  display: grid;
+  height: 100%;
+}
+
+.cover-image img {
+  max-width: 500px;
+  max-height: 100vh;
+  margin: auto;
+}
