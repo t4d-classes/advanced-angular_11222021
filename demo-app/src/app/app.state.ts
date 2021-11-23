@@ -4,4 +4,5 @@ import { Color } from "./color-tool/models/colors";
 export interface AppState {
   colors: Color[];
   cars: Car[];
+  editCarId: number;
 }

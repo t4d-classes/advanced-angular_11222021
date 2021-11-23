@@ -9,5 +9,197 @@
 </head>
 <body>
   <app-root></app-root>
+  <!-- <script>
+
+    function outer() {
+      let t = 2;
+
+      // host
+      setTimeout(() => {
+        t = 4;
+      }, 2000);
+
+      return function inner() {
+        console.log(t);
+      };
+    }
+
+    const innerFn = outer();
+
+    innerFn();
+
+    setTimeout(() => {
+      innerFn();
+    }, 4000);
+
+
+
+
+  </script> -->
+  <!-- <script>
+
+    // setTimeout(() => {
+    //   console.log("a");
+    // }, 0);
+
+    // console.log("b");
+
+    const delay = () => Math.floor(Math.random() * 1000) + 500;
+
+    // sequential async ops with callbacks is messy
+    // setTimeout(() => {
+    //   console.log("a");
+    //   setTimeout(() => {
+    //     console.log("b");
+    //     setTimeout(() => {
+    //       console.log("c");
+    //     }, delay());
+    //   }, delay());
+    // }, delay());
+
+    function allDone() {
+      console.log('all done');
+    }
+
+    let counter = 0;
+
+    counter++;
+    setTimeout(() => {
+      console.log("a");
+      counter--;
+      if (counter === 0) {
+        allDone();
+      }
+    }, delay());
+
+    counter++;
+    setTimeout(() => {
+      console.log("b");
+      counter--;
+      if (counter === 0) {
+        allDone();
+      }
+    }, delay());
+
+    counter++;
+    setTimeout(() => {
+      console.log("c");
+      counter--;
+      if (counter === 0) {
+        allDone();
+      }
+    }, delay());
+
+
+
+
+
+
+  </script> -->
+  <script>
+
+    // class Promise {
+
+    //   constructor(fn) {
+
+    //     this._resolveFns = [];
+    //     this._rejectFns = [];
+
+    //     const resolveFn = result => {
+    //       this._resolveFns.forEach(f => f(result));
+    //     };
+    //     const rejectFn = result => {
+    //       this._rejectFns.forEach(f => f(result));
+    //     };
+
+    //     fn(resolveFn, rejectFn);
+    //   }
+
+    //   then(fn) {
+    //     this._resolveFns.push(fn);
+    //   }
+
+    //   catch(fn) {
+    //     this._rejectFns.push(fn);
+    //   }
+    // }
+
+    // const p = new Promise((resolve, reject) => {
+
+    //   console.log("cool");
+
+    //   setTimeout(() => {
+    //     resolve('a');
+    //   }, 2000);
+
+    // });
+
+    // console.log("created promise object");
+
+    // p.then(result => {
+    //   console.log("p resolved: " + result);
+    // });
+
+    // console.log("made it here");
+
+    // const delay = () => Math.floor(Math.random() * 1000) + 500;
+
+    // const taskA = () => new Promise(resolve => setTimeout(() => resolve("a"), delay()));
+    // const taskB = () => new Promise(resolve => setTimeout(() => resolve("b"), delay()));
+    // const taskC = () => new Promise(resolve => setTimeout(() => resolve("c"), delay()));
+
+
+    // taskA()
+    //   .then(result => {
+    //     console.log(result);
+    //     return taskB();
+    //   })
+    //   .then(result => {
+    //     console.log(result);
+    //     return taskC();
+    //   })
+    //   .then(result => {
+    //     console.log(result);
+    //   });
+
+    // Promise.all([taskA(), taskB(), taskC()]).then(results => {
+    //   console.log(results);
+    // });
+
+    // const doIt = () => {
+    //   return taskA()
+    //     .then(result => {
+    //       console.log(result);
+    //       return taskB();
+    //     })
+    //     .then(result => {
+    //       console.log(result);
+    //       return taskC();
+    //     })
+    //     .then(result => {
+    //       console.log(result);
+    //     });
+    // };
+
+    // const doIt = async () => {
+
+    //   let result = await taskA();
+    //   console.log(result);
+
+    //   result = await taskB();
+    //   console.log(result);
+
+    //   result = await taskC();
+    //   console.log(result);
+
+    // };
+
+    // doIt().then(() => console.log("all done"));
+
+
+
+
+
+  </script>
 </body>
 </html>

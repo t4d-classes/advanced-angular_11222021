@@ -1,3 +1,9 @@
 <app-tool-header headerText="Car Tool"></app-tool-header>
-<app-car-table [cars]="cars$ | async" (deleteCar)="doDeleteCar($event)"></app-car-table>
+<app-car-table
+  [cars]="cars$ | async"
+  [editCarId]="editCarId$ | async"
+  (editCar)="doEditCar($event)"
+  (deleteCar)="doDeleteCar($event)"
+  (saveCar)="doSaveCar($event)"
+  (cancelCar)="doCancelCar()"></app-car-table>
 <app-car-form (submitCar)="doAddCar($event)"></app-car-form>

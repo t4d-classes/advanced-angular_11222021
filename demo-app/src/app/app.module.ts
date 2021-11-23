@@ -7,7 +7,7 @@ import { ColorToolModule } from './color-tool/color-tool.module';
 import { CarToolModule } from './car-tool/car-tool.module';
 import { AppComponent } from './app.component';
 import { colorsReducer } from './color-tool/color-tool.reducers';
-import { carsReducer } from './car-tool/car-tool.reducers';
+import { carsReducer, editCarIdReducer } from './car-tool/car-tool.reducers';
 
 @NgModule({
   declarations: [
@@ -19,6 +19,7 @@ import { carsReducer } from './car-tool/car-tool.reducers';
     StoreModule.forRoot({
       colors: colorsReducer,
       cars: carsReducer,
+      editCarId: editCarIdReducer,
     }),
     ColorToolModule,
     CarToolModule,
