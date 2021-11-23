@@ -13,13 +13,7 @@ export class ColorFormComponent implements OnInit {
   colorForm!: FormGroup;
 
   @Output()
-  submitColor = new EventEmitter<NewColor>()
-
-  // private fb: FormBuilder;
-
-  // constructor(fb: FormBuilder) {
-  //   this.fb = fb;
-  // }
+  submitColor = new EventEmitter<NewColor>();
 
   constructor(private fb: FormBuilder) { }
 
